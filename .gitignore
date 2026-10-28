@@ -1,0 +1,4 @@
+/respaldos/
+*.private.xml
+*.pfx
+*.p12

@@ -1,0 +1,12 @@
+Verificación real de AUX de SW1 comunicada por Adrian Magallanes.
+Conexión: segundo puerto serie de QEMU, TCP 5010 de la GNS3 VM.
+Usuario: radius5.
+
+SW1#show privilege
+Current privilege level is 5
+SW1#show users
+    Line       User       Host(s)              Idle       Location
+   0 con 0     radius5    idle                 00:03:48
+*  1 aux 0     radius5    idle                 00:00:00
+
+Resultado: autenticación y asignación del nivel 5 comprobadas en AUX 0 de SW1.

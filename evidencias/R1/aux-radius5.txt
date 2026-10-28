@@ -1,0 +1,6 @@
+Prueba real de AUX de R1 comunicada por Adrian Magallanes.
+Usuario: radius5
+Resultado de show privilege: Current privilege level is 5
+Resultado de show users:
+*  1 aux 0     radius5    idle                 00:00:00
+Conclusión: autenticación y asignación del nivel 5 comprobadas en AUX de R1.

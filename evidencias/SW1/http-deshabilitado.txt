@@ -1,0 +1,5 @@
+SW1: cambio real enviado por el estudiante.
+SW1#show running-config | include ip http
+no ip http server
+no ip http secure-server
+La operación copy running-config startup-config terminó con [OK].

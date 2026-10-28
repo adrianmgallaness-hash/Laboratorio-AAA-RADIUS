@@ -1,0 +1,157 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SW1 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circ                                               umstances may this software be used separate from the Cisco Modeling Labs Softwa                                               re that this software was provided with, or deployed or used as part of a produc                                               tion environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cis                                               co End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use                                                or distribution of this software is expressly prohibited.
+
+
+User Access Verification
+
+Username: radius5
+Password:
+
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circ                                               umstances may this software be used separate from the Cisco Modeling Labs Softwa                                               re that this software was provided with, or deployed or used as part of a produc                                               tion environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cis                                               co End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use                                                or distribution of this software is expressly prohibited.
+
+SW1#show privilege
+Current privilege level is 5
+SW1#enable
+Password:
+SW1#undebug all
+All possible debugging has been turned off
+SW1#show logging
+Syslog logging: enabled (0 messages dropped, 15 messages rate-limited, 0 flushes                                               , 0 overruns, xml disabled, filtering disabled)
+
+No Active Message Discriminator.
+
+
+
+No Inactive Message Discriminator.
+
+
+    Console logging: level warnings, 63 messages logged, xml disabled,
+                     filtering disabled
+    Monitor logging: level debugging, 0 messages logged, xml disabled,
+                     filtering disabled
+    Buffer logging:  level debugging, 61 messages logged, xml disabled,
+                    filtering disabled
+    Exception Logging: size (8192 bytes)
+    Count and timestamp logging messages: disabled
+    Persistent logging: disabled
+    Trap logging: level informational, 85 message lines logged
+        Logging Source-Interface:       VRF Name:
+
+Log Buffer (65536 bytes):
+
+*Oct 27 04:13:46.279: %SYS-5-LOG_CONFIG_CHANGE: Buffer logging: level debugging,                                                xml disabled, filtering disabled, size (65536)
+*Oct 27 04:13:46.826: %SYS-5-CONFIG_I: Configured from console by radius10 on co                                               nsole
+*Oct 27 04:14:08.512: %SYS-5-CONFIG_I: Configured from console by rescate2139 on                                                vty0 (10.21.39.129)
+*Oct 27 04:15:04.833: %SYS-5-LOG_CONFIG_CHANGE: Console logging: level warnings,                                                xml disabled, filtering disabled
+*Oct 27 04:15:04.863: %SYS-5-CONFIG_I: Configured from console by radius10 on co                                               nsole
+*Oct 27 04:15:14.337: %SYS-6-LOGOUT: User radius10 has exited tty session 0()
+*Oct 27 04:15:16.504: AAA/BIND(00000013): Bind i/f
+*Oct 27 04:15:16.504: AAA/AUTHEN/LOGIN (00000013): Pick method list 'CONSOLA_RAD                                               IUS'
+*Oct 27 04:15:16.506: RADIUS/ENCODE(00000013): ask "Username: "
+*Oct 27 04:15:16.507: RADIUS/ENCODE(00000013): send packet; GET_USER
+*Oct 27 04:15:18.308: RADIUS/ENCODE(00000013): ask "Password: "
+*Oct 27 04:15:18.308: RADIUS/ENCODE(00000013): send packet; GET_PASSWORD
+*Oct 27 04:15:20.295: RADIUS/ENCODE(00000013):Orig. component type = Exec
+*Oct 27 04:15:20.295: RADIUS/ENCODE(00000013): dropping service type, "radius-se                                               rver attribute 6 on-for-login-auth" is off
+*Oct 27 04:15:20.296: RADIUS(00000013): Config NAS IP: 10.21.39.130
+*Oct 27 04:15:20.296: RADIUS(00000013): Config NAS IPv6: ::
+*Oct 27 04:15:20.296: RADIUS/ENCODE(00000013): acct_session_id: 7
+*Oct 27 04:15:20.297: RADIUS(00000013): sending
+*Oct 27 04:15:20.299: RADIUS(00000013): Send Access-Request to 10.21.39.131:1812                                                onvrf(0) id 1645/10, len 71
+*Oct 27 04:15:20.299: RADIUS:  authenticator C7 D3 D8 FE 14 CF 9E FD - 28 D7 47                                                75 02 62 13 93
+*Oct 27 04:15:20.299: RADIUS:  User-Name           [1]   9   "radius5"
+*Oct 27 04:15:20.300: RADIUS:  User-Password       [2]   18  *
+*Oct 27 04:15:20.301: RADIUS:  NAS-Port            [5]   6   0                                                                 
+*Oct 27 04:15:20.301: RADIUS:  NAS-Port-Id         [87]  6   "tty0"
+*Oct 27 04:15:20.302: RADIUS:  NAS-Port-Type       [61]  6   Async                                                                    [0]
+*Oct 27 04:15:20.303: RADIUS:  NAS-IP-Address      [4]   6   10.21.39.130                                                      
+*Oct 27 04:15:20.303: RADIUS(00000013): Sending a IPv4 Radius Packet
+*Oct 27 04:15:20.306: RADIUS(00000013): Started 5 sec timeout
+*Oct 27 04:15:20.312: RADIUS: Received from id 1645/10 10.21.39.131:1812, Access                                               -Accept, len 96
+*Oct 27 04:15:20.312: RADIUS:  authenticator 7C D6 05 74 7F 53 E4 4B - 18 D9 8C                                                C8 6A F3 00 AF
+*Oct 27 04:15:20.312: RADIUS:  Vendor, Cisco       [26]  24
+*Oct 27 04:15:20.313: RADIUS:   Cisco AVpair       [1]   18  "shell:priv-lvl=5"
+*Oct 27 04:15:20.313: RADIUS:  Service-Type        [6]   6   Login                                                                    [1]
+*Oct 27 04:15:20.314: RADIUS:  Class               [25]  46
+*Oct 27 04:15:20.314: RADIUS:   AC 6F 09 BA 00 00 01 37 00 01 02 00 0A 15 27 83                                                00 00 00 00 E4 A8 03 2C E9 81 6F AD 01 DD 65 C4 73 97 DA 78 00 00 00 00 00 00 00                                                11          [ o7',oesx]
+*Oct 27 04:15:20.315: RADIUS(00000013): Received from id 1645/10
+*Oct 27 04:15:20.318: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: radius5]                                                [Source: UNKNOWN] [localport: 0] at 04:15:20 UTC Tue Oct 27 2026
+*Oct 27 04:15:20.319: AAA/AUTHOR/EXEC(00000013): processing AV priv-lvl=5
+*Oct 27 04:15:20.320: AAA/AUTHOR/EXEC(00000013): processing AV service-type=1
+*Oct 27 04:15:20.320: AAA/AUTHOR/EXEC(00000013): Authorization successful
+*Oct 27 04:15:25.481: AAA: parse name=tty0 idb type=-1 tty=-1
+*Oct 27 04:15:25.482: AAA: name=tty0 flags=0x11 type=4 shelf=0 slot=0 adapter=0                                                port=0 channel=0
+*Oct 27 04:15:25.482: AAA/MEMORY: create_user (0x19D52FA0) user='radius5' ruser=                                               'NULL' ds0=0 port='tty0' rem_addr='async' authen_type=ASCII service=ENABLE priv=                                               15 initial_task_id='0', vrf= (id=0)
+*Oct 27 04:15:25.483: AAA/AUTHEN/START (1336619081): port='tty0' list='CONSOLA_R                                               ADIUS' action=LOGIN service=ENABLE
+*Oct 27 04:15:25.483: AAA/AUTHEN/START (1336619081): using "default" list
+*Oct 27 04:15:25.483: AAA/AUTHEN/START (1336619081): Method=ENABLE
+*Oct 27 04:15:25.484: AAA/AUTHEN (1336619081): status = GETPASS
+*Oct 27 04:15:27.166: AAA/AUTHEN/CONT (1336619081): continue_login (user='(undef)')
+*Oct 27 04:15:27.167: AAA/AUTHEN (1336619081): status = GETPASS
+*Oct 27 04:15:27.167: AAA/AUTHEN/CONT (1336619081): Method=ENABLE
+*Oct 27 04:15:27.176: AAA/AUTHEN (1336619081): status = PASS
+*Oct 27 04:15:27.177: AAA/MEMORY: free_user (0x19D52FA0) user='NULL' ruser='NULL' port='tty0' rem_addr='async' authen_type=ASCII service=ENABLE priv=15 vrf= (id=0)
+SW1#
+SW1#
+SW1#
+SW1#
+SW1#
+SW1#

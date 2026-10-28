@@ -1,0 +1,58 @@
+! Aplicar por bloques desde una consola administrativa. Sustituir los tres secretos.
+configure terminal
+hostname R1
+no ip domain lookup
+ip domain name infra2139.test
+interface FastEthernet0/0
+ description Enlace-a-SW1
+ ip address 10.21.39.129 255.255.255.248
+ no shutdown
+exit
+username rescate2139 privilege 15 secret <LOCAL_USER_SECRET>
+enable secret <ENABLE_SECRET>
+aaa new-model
+radius-server host 10.21.39.131 auth-port 1812 acct-port 1813 key <RADIUS_SHARED_SECRET>
+ip radius source-interface FastEthernet0/0
+aaa authentication login CONSOLA_RADIUS group radius local
+aaa authentication login SSH_LOCAL local
+aaa authentication enable default enable
+aaa authorization console
+aaa authorization exec CONSOLA_RADIUS group radius local
+aaa authorization exec SSH_LOCAL local
+privilege exec level 0 show privilege
+privilege exec level 5 ping
+privilege exec level 10 traceroute
+service timestamps log datetime msec
+service timestamps debug datetime msec
+logging buffered 65536 debugging
+logging console warnings
+login on-success log
+login on-failure log
+no ip http server
+no ip http secure-server
+! Generar solo si el equipo no tiene las claves de SSH previstas.
+crypto key generate rsa modulus 2048
+ip ssh version 2
+ip ssh time-out 60
+line console 0
+ privilege level 1
+ exec-timeout 15 0
+ login authentication CONSOLA_RADIUS
+ authorization exec CONSOLA_RADIUS
+ logging synchronous
+exit
+line aux 0
+ privilege level 1
+ exec-timeout 15 0
+ login authentication CONSOLA_RADIUS
+ authorization exec CONSOLA_RADIUS
+ logging synchronous
+exit
+line vty 0 4
+ login authentication SSH_LOCAL
+ authorization exec SSH_LOCAL
+ transport input ssh
+exit
+end
+copy running-config startup-config
+! Pulsar Enter para aceptar el nombre startup-config cuando se solicite.

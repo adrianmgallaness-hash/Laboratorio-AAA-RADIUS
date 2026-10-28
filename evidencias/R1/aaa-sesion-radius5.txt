@@ -1,0 +1,88 @@
+
+Password:
+
+R1#show privilege
+Current privilege level is 5
+R1#
+R1#enable
+Password:
+R1#undebug all
+All possible debugging has been turned off
+R1#show logging
+Syslog logging: enabled (0 messages dropped, 0 messages rate-limited, 0 flushes, 0 overruns, xml disabled, filtering disabled)
+
+No Active Message Discriminator.
+
+
+
+No Inactive Message Discriminator.
+
+
+    Console logging: level warnings, 18 messages logged, xml disabled,
+                     filtering disabled
+    Monitor logging: level debugging, 0 messages logged, xml disabled,
+                     filtering disabled
+    Buffer logging:  level debugging, 59 messages logged, xml disabled,
+                    filtering disabled
+    Exception Logging: size (8192 bytes)
+    Count and timestamp logging messages: disabled
+    Persistent logging: disabled
+
+No active filter modules.
+
+    Trap logging: level informational, 24 message lines logged
+        Logging Source-Interface:       VRF Name:
+
+Log Buffer (65536 bytes):
+
+*Oct 27 03:54:44.558: %SYS-5-CONFIG_I: Configured from console by radius5 on console
+*Oct 27 03:55:18.598: %SYS-6-LOGOUT: User radius5 has exited tty session 0()
+*Oct 27 03:55:21.174: AAA/BIND(00000016): Bind i/f
+*Oct 27 03:55:21.178: AAA/AUTHEN/LOGIN (00000016): Pick method list 'CONSOLA_RADIUS'
+*Oct 27 03:55:21.178: RADIUS/ENCODE(00000016): ask "Username: "
+*Oct 27 03:55:21.182: RADIUS/ENCODE(00000016): send packet; GET_USER
+*Oct 27 03:55:25.358: RADIUS/ENCODE(00000016): ask "Password: "
+*Oct 27 03:55:25.358: RADIUS/ENCODE(00000016): send packet; GET_PASSWORD
+*Oct 27 03:55:30.410: RADIUS/ENCODE(00000016):Orig. component type = Exec
+*Oct 27 03:55:30.410: RADIUS:  AAA Unsupported Attr: interface         [221] 4   1743182952
+*Oct 27 03:55:30.410: RADIUS/ENCODE(00000016): dropping service type, "radius-server attribute 6 on-for-login-auth" is off
+*Oct 27 03:55:30.410: RADIUS(00000016): Config NAS IP: 10.21.39.129
+*Oct 27 03:55:30.410: RADIUS(00000016): Config NAS IPv6: ::
+*Oct 27 03:55:30.410: RADIUS/ENCODE(00000016): acct_session_id: 11
+*Oct 27 03:55:30.410: RADIUS(00000016): sending
+*Oct 27 03:55:30.410: RADIUS(00000016): Send Access-Request to 10.21.39.131:1812 id 1645/11, len 71
+*Oct 27 03:55:30.410: RADIUS:  authenticator 01 B2 68 D2 F9 31 F4 9F - 74 F4 6C 98 5A 0E 36 C2
+*Oct 27 03:55:30.410: RADIUS:  User-Name           [1]   9   "radius5"
+*Oct 27 03:55:30.410: RADIUS:  User-Password       [2]   18  *
+*Oct 27 03:55:30.410: RADIUS:  NAS-Port            [5]   6   0                  
+*Oct 27 03:55:30.410: RADIUS:  NAS-Port-Id         [87]  6   "tty0"
+*Oct 27 03:55:30.410: RADIUS:  NAS-Port-Type       [61]  6   Async                     [0]
+*Oct 27 03:55:30.410: RADIUS:  NAS-IP-Address      [4]   6   10.21.39.129       
+*Oct 27 03:55:30.410: RADIUS(00000016): Sending a IPv4 Radius Packet
+*Oct 27 03:55:30.410: RADIUS(00000016): Started 5 sec timeout
+*Oct 27 03:55:30.466: RADIUS: Received from id 1645/11 10.21.39.131:1812, Access-Accept, len 96
+*Oct 27 03:55:30.470: RADIUS:  authenticator C1 B6 1C CC B2 17 7E B9 - A2 89 F1 2D FA 97 C4 F9
+*Oct 27 03:55:30.470: RADIUS:  Vendor, Cisco       [26]  24
+*Oct 27 03:55:30.470: RADIUS:   Cisco AVpair       [1]   18  "shell:priv-lvl=5"
+*Oct 27 03:55:30.470: RADIUS:  Service-Type        [6]   6   Login                     [1]
+*Oct 27 03:55:30.470: RADIUS:  Class               [25]  46
+*Oct 27 03:55:30.470: RADIUS:   AC 71 09 BC 00 00 01 37 00 01 02 00 0A 15 27 83 00 00 00 00 E4 A8 03 2C E9 81 6F AD 01 DD 65 C4 73 97 DA 78 00 00 00 00 00 00 00 13          [ q7',oesx]
+*Oct 27 03:55:30.470: RADIUS(00000016): Received from id 1645/11
+*Oct 27 03:55:30.478: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: radius5] [Source: UNKNOWN] [localport: 0] at 03:55:30 UTC Tue Oct 27 2026
+*Oct 27 03:55:30.482: AAA/AUTHOR/EXEC(00000016): processing AV priv-lvl=5
+*Oct 27 03:55:30.486: AAA/AUTHOR/EXEC(00000016): processing AV service-type=1
+*Oct 27 03:55:30.486: AAA/AUTHOR/EXEC(00000016): Authorization successful
+*Oct 27 03:55:42.614: AAA: parse name=tty0 idb type=-1 tty=-1
+*Oct 27 03:55:42.614: AAA: name=tty0 flags=0x11 type=4 shelf=0 slot=0 adapter=0 port=0 channel=0
+*Oct 27 03:55:42.614: AAA/MEMORY: create_user (0x67EBB658) user='radius5' ruser='NULL' ds0=0 port='tty0' rem_addr='async' authen_type=ASCII service=ENABLE priv=15 initial_task_id='0', vrf= (id=0)
+*Oct 27 03:55:42.614: AAA/AUTHEN/START (1326160202): port='tty0' list='CONSOLA_RADIUS' action=LOGIN service=ENABLE
+*Oct 27 03:55:42.614: AAA/AUTHEN/START (1326160202): using "default" list
+*Oct 27 03:55:42.614: AAA/AUTHEN/START (1326160202): Method=ENABLE
+*Oct 27 03:55:42.614: AAA/AUTHEN (1326160202): status = GETPASS
+*Oct 27 03:55:48.126: AAA/AUTHEN/CONT (1326160202): continue_login (user='(undef)')
+*Oct 27 03:55:48.126: AAA/AUTHEN (1326160202): status = GETPASS
+*Oct 27 03:55:48.130: AAA/AUTHEN/CONT (1326160202): Method=ENABLE
+*Oct 27 03:55:48.142: AAA/AUTHEN (1326160202): status = PASS
+*Oct 27 03:55:48.142: AAA/MEMORY: free_user (0x67EBB658) user='NULL' ruser='NULL' port='tty0' rem_addr='async' authen_type=ASCII service=ENABLE priv=15 vrf= (id=0)
+R1#
+R1#

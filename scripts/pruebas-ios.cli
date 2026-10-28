@@ -1,0 +1,41 @@
+! Ejecutar uno por uno. Este archivo es una guía, no un bloque para pegar completo.
+! Conectividad y nivel de la sesión:
+show ip interface brief
+show privilege
+ping 10.21.39.131
+show users
+! Repetir desde sesiones nuevas de radius0/radius5/radius10; no usar enable antes de la prueba.
+traceroute ?
+! Después del signo ?, Ctrl+U limpia la línea antes de introducir otro comando.
+configure terminal
+! El intento anterior debe ser rechazado en niveles 0/5/10.
+
+! Desde SW1 hacia R1:
+ssh -v 2 -c aes128-cbc -l rescate2139 10.21.39.129
+! Desde R1 hacia SW1:
+ssh -v 2 -c aes128-cbc -l rescate2139 10.21.39.130
+! Tras autenticar: show privilege y show users; exit vuelve al equipo de origen.
+
+! Comandos administrativos (nivel 15):
+show running-config | include ^aaa
+show running-config | section line
+show ip ssh
+show radius statistics
+! Sustituir el marcador en privado; no publicar capturas con la contraseña literal.
+test aaa group radius radius5 <CLAVE_USUARIO_RADIUS> legacy
+test aaa group radius radius5 Incorrecta2139! legacy
+
+! Captura temporal de AAA/RADIUS:
+debug aaa authentication
+debug aaa authorization
+debug radius
+! Iniciar sesión NUEVA de radius5 por consola/AUX en otra ventana.
+! Volver a una sesión de nivel 15 antes de ejecutar:
+undebug all
+show logging | include LOGIN|AAA|RADIUS|AUTH
+show debugging
+
+! Guardar y exportar (sanitizar secretos y hashes antes de publicar):
+copy running-config startup-config
+terminal length 0
+show running-config
