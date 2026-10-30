@@ -5,8 +5,19 @@ show privilege
 ping 10.21.39.131
 show users
 ! Repetir desde sesiones nuevas de radius0/radius5/radius10; no usar enable antes de la prueba.
+! Prueba de nivel 10 propuesta para el video; pendiente de repetición.
+! En R1, desde radius10 sin enable:
+! ping 10.21.39.130
+! traceroute 10.21.39.130
+! En SW1, desde radius10 sin enable:
+! ping 10.21.39.129
+! traceroute 10.21.39.129
+! Usar solo el destino correspondiente al equipo actual, con IP explícita.
+! Si no hay respuesta, Ctrl+Mayús+6 interrumpe las sondas.
+! Para comprobar únicamente que el comando está disponible:
 traceroute ?
 ! Después del signo ?, Ctrl+U limpia la línea antes de introducir otro comando.
+! No presentar la ayuda como evidencia de una ruta completada.
 configure terminal
 ! El intento anterior debe ser rechazado en niveles 0/5/10.
 

@@ -22,7 +22,26 @@ Grabar con rostro y voz visibles/audibles. Mostrar fecha y hora al comienzo (`Ge
 
 Las pantallas deben mostrar pruebas reales. No ejecutar `enable` antes de demostrar las restricciones de una cuenta RADIUS: la elevación cambia el nivel de la sesión. El carácter `#` por sí solo no identifica nivel 15; verificarlo con `show privilege`.
 
-Para comprobar la disponibilidad de traceroute sin esperar sondas, usar `traceroute ?`; después presionar Ctrl+U para borrar la línea. En las capturas existentes, los asteriscos de R1 representan sondas sin respuesta; el destino vacío en SW1 produce un error de entrada. Ninguno de esos casos demuestra un traceroute completo exitoso.
+## Prueba de traceroute
+
+Antes de grabar, repetir esta secuencia desde una sesión nueva de `radius10`, sin ejecutar `enable`:
+
+1. Ejecutar `show privilege` y comprobar que indica nivel 10.
+2. Desde R1, ejecutar `ping 10.21.39.130` y luego `traceroute 10.21.39.130`.
+3. Desde SW1, ejecutar `ping 10.21.39.129` y luego `traceroute 10.21.39.129`.
+4. Mostrar `configure terminal` rechazado para conservar la prueba de restricciones.
+
+Se propone como destino el otro equipo Cisco de la misma red. Esta repetición está **pendiente de ejecución**: solo describir una ruta completada si aparece realmente la dirección de destino en el resultado. Introducir cada comando por separado y siempre con la IP; no dejar vacío el destino.
+
+Si las sondas muestran asteriscos, interrumpir con **Ctrl+Mayús+6** y comprobar la conectividad con ping. Para demostrar únicamente el permiso del comando, usar `traceroute ?` y después **Ctrl+U** para limpiar la línea. Explicar que la ayuda acredita disponibilidad del comando y el ping acredita conectividad.
+
+Las capturas originales se conservan: en R1 las sondas no recibieron respuesta y en SW1 el destino vacío produjo un error. Esas imágenes no documentan una ruta completada.
+
+## Explicación del evento NPS rechazado
+
+La captura del evento **6273, motivo 16**, corresponde al cliente **R1 (10.21.39.129)** y al nombre de usuario inexistente **`show privilege`**, introducido accidentalmente. Presentarla como rechazo de credenciales inválidas. No atribuirla a una contraseña incorrecta de `radius5` desde SW1.
+
+Si se graba una nueva prueba con contraseña incorrecta, identificar su propio evento por hora, usuario y cliente RADIUS antes de relacionarlo con el intento.
 
 ## Publicación y entrega
 

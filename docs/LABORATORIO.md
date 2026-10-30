@@ -66,12 +66,14 @@ La asociación de políticas NPS utiliza grupos globales de seguridad GG_RADIUS_
 | AUX SW1 | Usuario radius5 recibió nivel 5 y show users marcó aux 0 |
 | Respaldo local | Con IAS detenido, ambos equipos aceptaron rescate2139 y asignaron nivel 15 |
 | Recuperación de NPS | IAS volvió a Running y ambos equipos autenticaron radius5 mediante RADIUS |
-| Contraseña incorrecta desde SW1 | RADIUS rechazó el intento y NPS registró evento 6273, motivo 16 |
+| Usuario inexistente desde R1 | NPS registró el evento 6273, motivo 16, para `show privilege`, introducido accidentalmente como nombre de usuario |
 | Contraseña correcta desde SW1 | NPS registró evento 6272 y política AAA_Cisco_Nivel5 |
 | Registros de R1 y SW1 | Access-Accept, shell:priv-lvl=5, Login Success y Authorization successful |
 | Administración web de SW1 | HTTP y HTTPS desactivados; configuración guardada con [OK] |
 
-Las pruebas proceden de salidas y capturas originales aportadas por el autor. La [galería de evidencias](../evidencias/README.md) permite revisar los resultados y su alcance. Los intentos de traceroute muestran disponibilidad del comando; no se afirma que sus sondas hayan completado una ruta exitosa.
+Las pruebas proceden de salidas y capturas originales aportadas por el autor. La [galería de evidencias](../evidencias/README.md) permite revisar los resultados y su alcance. Los intentos de traceroute muestran disponibilidad del comando; no se afirma que sus sondas hayan completado una ruta exitosa. En R1 las sondas no recibieron respuesta y en SW1 el destino se dejó vacío. El [guion del video](DEMOSTRACION.md#prueba-de-traceroute) incluye una secuencia para repetir la prueba con un destino explícito antes de grabar.
+
+El evento 6273 conservado corresponde a **R1 (10.21.39.129)** y al usuario inexistente **`show privilege`**. Demuestra rechazo de credenciales inválidas; no acredita una contraseña incorrecta de `radius5` desde SW1. Los eventos 6272 conservados documentan accesos aceptados desde R1 y SW1.
 
 ## Evidencias conservadas
 
