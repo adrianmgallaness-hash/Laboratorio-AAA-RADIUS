@@ -37,6 +37,7 @@ La red **10.21.39.128/29** utiliza los segmentos **21** y **39** derivados de la
 - [Running-configs de R1 y SW1 y exportación NPS](configs/README.md)
 - [Scripts y secuencia de implementación](scripts/README.md)
 - [Guion de demostración y requisitos de entrega](docs/DEMOSTRACION.md)
+- [Guía práctica para grabar el video](docs/GUIA_VIDEO.md)
 - [TXT de entrega A2 — video pendiente](entregables/AdrianMagallanes_2025-2139_A2.txt)
 
 ## Control de acceso implementado
