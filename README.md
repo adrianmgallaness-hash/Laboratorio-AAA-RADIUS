@@ -1,6 +1,6 @@
 ## Video demostrativo
 
-**Pendiente de grabación y publicación en YouTube.** El enlace se colocará aquí, al inicio del repositorio. La demostración debe durar como máximo 10 minutos e incluir fecha y hora, rostro y voz del autor.
+https://youtu.be/QriDRCqpH4E?si=xZ12wWW6sipxR626
 
 # Laboratorio AAA · RADIUS
 
